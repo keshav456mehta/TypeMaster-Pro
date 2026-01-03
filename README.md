@@ -82,7 +82,6 @@ The platform blends **real-time typing tests**, **XP-based progression**, **achi
 
 ├── script.js # Game logic & systems
 
-└── assets/ # Icons, sounds & visuals
 
 
 ---
