@@ -3,7 +3,16 @@
 <!-- =============================================== -->
 
 <p align="center">
-  <img src="https://readme-typing-svg.demolab.com/?font=VT323&size=26&duration=2000&pause=1000&color=6366F1&center=true&vCenter=true&width=900&lines=⌨️+TYPEMASTER+PRO;%F0%9F%8E%AE+TYPE.+LEVEL+UP.+ACHIEVE.;%F0%9F%9A%80+GAMIFIED+TYPING+EXPERIENCE" alt="Typing SVG" />
+  <img src="https://readme-typing-svg.demolab.com?
+font=VT323
+&size=28
+&duration=3000
+&pause=1000
+&color=6366F1
+&center=true
+&vCenter=true
+&width=900
+&lines=TYPEMASTER+PRO;TYPE.+LEVEL+UP.+ACHIEVE.;GAMIFIED+TYPING+EXPERIENCE" alt="Typing SVG" />
 </p>
 
 <p align="center">
