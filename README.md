@@ -70,3 +70,28 @@ The platform blends **real-time typing tests**, **XP-based progression**, **achi
 ├── style.css # Styling & themes
 ├── script.js # Game logic & systems
 └── assets/ # Icons, sounds & visuals
+
+
+---
+
+## 🚀 Getting Started
+
+1. Clone the repository  
+   ```bash
+   git clone https://github.com/your-username/typemaster-pro.git
+
+)
+
+🎓 Learning Outcomes
+
+Advanced DOM manipulation
+
+Game state management in JavaScript
+
+UI/UX design principles
+
+Chart-based data visualization
+
+Client-side persistence
+
+<p align="center"> <strong>⌨️ Keep Typing. Keep Leveling Up. 🚀</strong> </p> ```
