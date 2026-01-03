@@ -70,8 +70,11 @@ The platform blends **real-time typing tests**, **XP-based progression**, **achi
 ## 📂 Project Structure
 
 ├── index.html # Main UI
+
 ├── style.css # Styling & themes
+
 ├── script.js # Game logic & systems
+
 └── assets/ # Icons, sounds & visuals
 
 
