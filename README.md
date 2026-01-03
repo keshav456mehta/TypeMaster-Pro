@@ -3,7 +3,8 @@
 <!-- =============================================== -->
 
 <p align="center">
-  <img src="https://readme-typing-svg.demolab.com?
+  <img 
+    src="https://readme-typing-svg.demolab.com?
 font=VT323
 &size=28
 &duration=3000
@@ -12,8 +13,10 @@ font=VT323
 &center=true
 &vCenter=true
 &width=900
-&lines=TYPEMASTER+PRO;TYPE.+LEVEL+UP.+ACHIEVE.;GAMIFIED+TYPING+EXPERIENCE" alt="Typing SVG" />
+&lines=TYPEMASTER+PRO;TYPE.+LEVEL+UP.+ACHIEVE.;GAMIFIED+TYPING+EXPERIENCE"
+    alt="Typing SVG" />
 </p>
+
 
 <p align="center">
   <img src="https://user-images.githubusercontent.com/your-image/banner.gif" alt="TypeMaster Pro Banner" width="85%"/>
