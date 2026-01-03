@@ -74,12 +74,6 @@ The platform blends **real-time typing tests**, **XP-based progression**, **achi
 
 ---
 
-## 🚀 Getting Started
-
-1. Clone the repository  
-   ```bash
-   git clone https://github.com/your-username/typemaster-pro.git
-
 )
 
 🎓 Learning Outcomes
