@@ -1,2 +1,69 @@
-# TypeMaster-Pro
-Front-end web project using HTML, CSS, and JavaScript with interactive functionality and responsive design.
+<!-- =============================================== -->
+<!-- 🚀 TypeMaster Pro | Gamified Typing Platform -->
+<!-- =============================================== -->
+
+<p align="center">
+  <img src="https://readme-typing-svg.demolab.com/?font=VT323&size=26&duration=2000&pause=1000&color=6366F1&center=true&vCenter=true&width=900&lines=⌨️+TYPEMASTER+PRO;%F0%9F%8E%AE+TYPE.+LEVEL+UP.+ACHIEVE.;%F0%9F%9A%80+GAMIFIED+TYPING+EXPERIENCE" alt="Typing SVG" />
+</p>
+
+<p align="center">
+  <img src="https://user-images.githubusercontent.com/your-image/banner.gif" alt="TypeMaster Pro Banner" width="85%"/>
+</p>
+
+---
+
+## 🎯 About The Project
+
+**TypeMaster Pro** is a modern, feature-rich **gamified typing test web application** designed to improve typing **speed**, **accuracy**, and **consistency** through interactive gameplay mechanics.
+
+The platform blends **real-time typing tests**, **XP-based progression**, **achievements**, and **analytics dashboards** to make skill-building engaging and measurable.
+
+> 💡 Built entirely using **HTML, CSS, and JavaScript** — no backend required.
+
+---
+
+## ✨ Key Highlights
+
+- 🚀 Real-time **WPM & Accuracy calculation**
+- 🏆 **XP, Levels, Badges & Achievements**
+- 🔥 Daily streaks & challenges
+- 📊 Performance analytics with **Chart.js**
+- 🎮 Multiple modes: Normal, Timer & Daily Challenge
+- 🌓 Dark / Light themes with customization
+- ♿ Accessibility-friendly options
+- 💾 Progress saved using **LocalStorage**
+
+---
+
+## 🧠 Core Features
+
+| Feature | Description |
+|------|-------------|
+| ⌨️ **Typing Test Engine** | Real-time input tracking with error detection |
+| 🕒 **Timer Mode** | Race against time to maximize WPM |
+| 🔥 **Daily Challenges** | Target-based challenges for rewards |
+| 🏅 **Achievements System** | Unlock badges for milestones |
+| 📈 **Analytics Dashboard** | Visualize WPM, accuracy & errors |
+| 🎨 **Customization** | Fonts, themes, cursor styles |
+| 🔊 **Sound Effects** | Feedback for actions & results |
+| 🛡️ **Anti-Cheat System** | Prevents unfair typing behavior |
+
+---
+
+## 🛠️ Tech Stack
+
+<p align="center">
+  <img src="https://skillicons.dev/icons?i=html,css,js" />
+</p>
+
+- **HTML5** – Structure & semantics  
+- **CSS3** – Modern UI, animations & themes  
+- **JavaScript (ES6+)** – Game logic & state handling  
+- **Chart.js** – Performance analytics  
+- **LocalStorage** – User progress persistence  
+
+---
+
+## 📂 Project Structure
+
+
