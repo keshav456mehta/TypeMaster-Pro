@@ -77,7 +77,6 @@ The platform blends **real-time typing tests**, **XP-based progression**, **achi
 
 ---
 
-)
 
 🎓 Learning Outcomes
 
@@ -91,4 +90,8 @@ Chart-based data visualization
 
 Client-side persistence
 
-<p align="center"> <strong>⌨️ Keep Typing. Keep Leveling Up. 🚀</strong> </p> ```
+
+<p align="center">
+  <img src="https://readme-typing-svg.demolab.com?font=Fira+Code&size=26&duration=2500&pause=900&color=00FFF6&center=true&vCenter=true&width=700&lines=Keep+Typing.;Keep+Leveling+Up." alt="Typing SVG" />
+</p>
+
