@@ -5,17 +5,18 @@
 <p align="center">
   <img 
     src="https://readme-typing-svg.demolab.com?
-font=VT323
-&size=28
-&duration=3000
-&pause=1000
-&color=6366F1
+font=Fira+Code
+&size=24
+&duration=2500
+&pause=800
+&color=00FFF6
 &center=true
 &vCenter=true
-&width=900
-&lines=TYPEMASTER+PRO;TYPE.+LEVEL+UP.+ACHIEVE.;GAMIFIED+TYPING+EXPERIENCE"
+&width=850
+&lines=Typing+Practice+Made+Fun;Gamified+Learning+Platform;Track+WPM+and+Accuracy"
     alt="Typing SVG" />
 </p>
+
 
 
 <p align="center">
