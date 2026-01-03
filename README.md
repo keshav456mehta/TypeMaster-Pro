@@ -25,6 +25,13 @@ The platform blends **real-time typing tests**, **XP-based progression**, **achi
 
 ---
 
+<p align="center">
+  <a href="https://type-master-pro.vercel.app/" target="_blank">
+    <img src="https://img.shields.io/badge/Live%20Website-Visit%20Now-6366F1?style=for-the-badge&logo=google-chrome&logoColor=white">
+  </a>
+</p>
+
+
 ## ✨ Key Highlights
 
 - 🚀 Real-time **WPM & Accuracy calculation**
