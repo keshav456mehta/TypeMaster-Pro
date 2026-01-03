@@ -1,0 +1,1000 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TypeMaster Pro | Advanced Typing Test</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&family=OpenDyslexic:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body class="dark-mode theme-midnight">
+    <div class="container">
+        <!-- Header -->
+        <header class="main-header">
+            <div class="logo">
+                <div class="logo-icon">
+                    <i class="fas fa-keyboard"></i>
+                </div>
+                <div class="logo-text">
+                    <h1>TypeMaster Pro</h1>
+                    <p class="tagline">Level <span id="user-level">1</span> | XP: <span id="user-xp">0</span> | Streak: <span id="user-streak">0</span> days</p>
+                </div>
+            </div>
+            
+            <div class="header-actions">
+                <div class="user-profile">
+                    <div class="profile-badge" id="profile-badge">
+                        <i class="fas fa-user"></i>
+                        <span class="badge-count" id="achievement-count">0</span>
+                    </div>
+                    <span class="user-rank" id="user-rank">Beginner</span>
+                </div>
+                
+                <div class="theme-switch-wrapper">
+                    <span class="theme-label">Dark</span>
+                    <label class="theme-switch">
+                        <input type="checkbox" id="theme-checkbox">
+                        <span class="slider"></span>
+                    </label>
+                    <span class="theme-label">Light</span>
+                </div>
+                
+                <button id="settings-btn" class="btn btn-icon" title="Settings">
+                    <i class="fas fa-cog"></i>
+                </button>
+                
+                <button id="reset-btn" class="btn btn-icon" title="Reset Test">
+                    <i class="fas fa-redo-alt"></i>
+                </button>
+            </div>
+        </header>
+
+        <!-- Main Navigation -->
+        <nav class="main-nav">
+            <div class="nav-tabs">
+                <button class="nav-tab active" data-tab="typing-test">
+                    <i class="fas fa-keyboard"></i>
+                    <span>Typing Test</span>
+                </button>
+                <button class="nav-tab" data-tab="lessons">
+                    <i class="fas fa-graduation-cap"></i>
+                    <span>Lessons</span>
+                </button>
+                <button class="nav-tab" data-tab="practice">
+                    <i class="fas fa-dumbbell"></i>
+                    <span>Practice Modes</span>
+                </button>
+                <button class="nav-tab" data-tab="analytics">
+                    <i class="fas fa-chart-line"></i>
+                    <span>Analytics</span>
+                </button>
+                <button class="nav-tab" data-tab="competitive">
+                    <i class="fas fa-trophy"></i>
+                    <span>Competitive</span>
+                </button>
+            </div>
+        </nav>
+
+        <main class="main-content">
+            <!-- Typing Test Tab (Default) -->
+            <div id="typing-test" class="content-tab active">
+                <!-- Mode Selection -->
+                <div class="mode-selector">
+                    <div class="mode-tabs">
+                        <button id="normal-mode-btn" class="mode-tab active">
+                            <i class="fas fa-flag-checkered"></i>
+                            <span>Normal Mode</span>
+                        </button>
+                        <button id="timer-mode-btn" class="mode-tab">
+                            <i class="fas fa-stopwatch"></i>
+                            <span>Timer Mode</span>
+                        </button>
+                        <button id="challenge-mode-btn" class="mode-tab">
+                            <i class="fas fa-fire"></i>
+                            <span>Challenge Mode</span>
+                        </button>
+                    </div>
+                    
+                    <div class="mode-options">
+                        <div class="option-group">
+                            <label for="difficulty-select">Difficulty:</label>
+                            <select id="difficulty-select" class="dropdown">
+                                <option value="easy">Easy</option>
+                                <option value="medium" selected>Medium</option>
+                                <option value="hard">Hard</option>
+                                <option value="expert">Expert</option>
+                            </select>
+                        </div>
+                        
+                        <!-- Removed language and sound options -->
+                    </div>
+                </div>
+
+                <!-- Normal Mode -->
+                <div id="normal-mode-ui" class="game-container active">
+                    <!-- Text Display -->
+                    <div class="text-display-container">
+                        <div class="text-display-header">
+                            <span class="text-label">Type this text:</span>
+                            <div class="text-info">
+                                <span class="difficulty-badge" id="difficulty-badge">Medium</span>
+                                <span class="text-length" id="sentence-length">45 chars</span>
+                                <button id="custom-text-btn" class="btn btn-sm" title="Use Custom Text">
+                                    <i class="fas fa-paste"></i> Custom Text
+                                </button>
+                            </div>
+                        </div>
+                        <div class="text-display" id="sentence-display">
+                            <p id="sentence-text">Practice makes progress. Consistency beats motivation every single day.</p>
+                        </div>
+                        <div class="text-source">
+                            <i class="fas fa-info-circle"></i>
+                            <span id="text-source">Random sentence • Medium difficulty</span>
+                        </div>
+                    </div>
+                    
+                    <!-- Anti-Cheat Warning -->
+                    <div class="anti-cheat-warning" id="anti-cheat-warning">
+                        <i class="fas fa-shield-alt"></i>
+                        <span>Anti-cheat system active. Copy-paste detection enabled.</span>
+                    </div>
+                    
+                    <!-- Typing Area -->
+                    <div class="typing-container">
+                        <div class="typing-header">
+                            <span>Start typing here...</span>
+                            <div class="typing-indicator">
+                                <div class="cursor-blink">
+                                    <i class="fas fa-i-cursor"></i>
+                                </div>
+                                <span class="real-time-wpm">Real-time WPM: <span id="realtime-wpm">0</span></span>
+                            </div>
+                        </div>
+                        <textarea 
+                            id="typing-input" 
+                            placeholder="Click the Start button to begin typing..."
+                            disabled
+                            rows="4"
+                            autocomplete="off"
+                            autocorrect="off"
+                            autocapitalize="off"
+                            spellcheck="false"
+                        ></textarea>
+                        
+                        <div class="typing-stats">
+                            <div class="stat">
+                                <span class="stat-label">Characters</span>
+                                <span id="char-count" class="stat-value">0</span>
+                            </div>
+                            <div class="stat">
+                                <span class="stat-label">Errors</span>
+                                <span id="error-count" class="stat-value">0</span>
+                            </div>
+                            <div class="stat">
+                                <span class="stat-label">Accuracy</span>
+                                <span id="accuracy" class="stat-value">100%</span>
+                            </div>
+                            <div class="stat">
+                                <span class="stat-label">Time</span>
+                                <span id="time-elapsed" class="stat-value">0.0s</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Controls -->
+                    <div class="controls-container">
+                        <div class="primary-controls">
+                            <button id="start-btn" class="btn btn-primary btn-lg">
+                                <i class="fas fa-play"></i>
+                                <span>Start Test</span>
+                            </button>
+                            <button id="end-btn" class="btn btn-secondary btn-lg" disabled>
+                                <i class="fas fa-stop"></i>
+                                <span>End Test</span>
+                            </button>
+                            <button id="pause-btn" class="btn btn-secondary btn-lg" disabled>
+                                <i class="fas fa-pause"></i>
+                                <span>Pause</span>
+                            </button>
+                        </div>
+                        
+                        <div class="secondary-controls">
+                            <button class="btn btn-icon" id="new-text-btn" title="New Text">
+                                <i class="fas fa-sync-alt"></i>
+                            </button>
+                            <button class="btn btn-icon" id="fullscreen-btn" title="Fullscreen">
+                                <i class="fas fa-expand"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Timer Mode -->
+                <div id="timer-mode-ui" class="game-container">
+                    <!-- Timer Controls -->
+                    <div class="timer-controls-container">
+                        <div class="time-options">
+                            <div class="time-option active" data-time="30">
+                                <span class="time-value">30s</span>
+                                <span class="time-label">Short</span>
+                            </div>
+                            <div class="time-option" data-time="60">
+                                <span class="time-value">60s</span>
+                                <span class="time-label">Standard</span>
+                            </div>
+                            <div class="time-option" data-time="90">
+                                <span class="time-value">90s</span>
+                                <span class="time-label">Long</span>
+                            </div>
+                            <div class="time-option" data-time="120">
+                                <span class="time-value">120s</span>
+                                <span class="time-label">Extended</span>
+                            </div>
+                        </div>
+                        
+                        <div class="timer-display">
+                            <div class="timer-circle">
+                                <svg width="140" height="140" viewBox="0 0 140 140">
+                                    <circle class="timer-bg" cx="70" cy="70" r="64" fill="transparent" stroke-width="8"></circle>
+                                    <circle class="timer-progress" cx="70" cy="70" r="64" fill="transparent" stroke-width="8"
+                                        stroke-dasharray="402.124" stroke-dashoffset="0"></circle>
+                                </svg>
+                                <div class="timer-text">
+                                    <span id="timer-count">60</span>
+                                    <span class="timer-unit">s</span>
+                                </div>
+                            </div>
+                            
+                            <div class="timer-stats">
+                                <div class="timer-stat">
+                                    <span class="timer-stat-label">WPM</span>
+                                    <span id="timer-wpm" class="timer-stat-value">0</span>
+                                </div>
+                                <div class="timer-stat">
+                                    <span class="timer-stat-label">Accuracy</span>
+                                    <span id="timer-accuracy" class="timer-stat-value">100%</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Text Display -->
+                    <div class="text-display-container">
+                        <div class="text-display-header">
+                            <span class="text-label">Type this paragraph:</span>
+                            <div class="text-info">
+                                <span class="difficulty-badge" id="timer-difficulty-badge">Medium</span>
+                                <span class="text-length" id="paragraph-length">180 chars</span>
+                            </div>
+                        </div>
+                        <div class="text-display">
+                            <p id="timer-text">This is a longer paragraph designed for the timer mode. You will need to type as much of this text as possible before the time runs out. Try to be both fast and accurate to achieve a high score.</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Typing Area -->
+                    <div class="typing-container">
+                        <div class="typing-header">
+                            <span>Start typing here...</span>
+                            <div class="typing-indicator">
+                                <div class="cursor-blink">
+                                    <i class="fas fa-i-cursor"></i>
+                                </div>
+                                <span class="real-time-wpm">Real-time WPM: <span id="timer-realtime-wpm">0</span></span>
+                            </div>
+                        </div>
+                        <textarea 
+                            id="timer-typing-input" 
+                            placeholder="Click the Start Timer button to begin..."
+                            disabled
+                            rows="4"
+                            autocomplete="off"
+                            autocorrect="off"
+                            autocapitalize="off"
+                            spellcheck="false"
+                        ></textarea>
+                        
+                        <div class="typing-stats">
+                            <div class="stat">
+                                <span class="stat-label">Words</span>
+                                <span id="timer-word-count" class="stat-value">0</span>
+                            </div>
+                            <div class="stat">
+                                <span class="stat-label">Errors</span>
+                                <span id="timer-error-count" class="stat-value">0</span>
+                            </div>
+                            <div class="stat">
+                                <span class="stat-label">Progress</span>
+                                <span id="timer-progress" class="stat-value">0%</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Controls -->
+                    <div class="controls-container">
+                        <div class="primary-controls">
+                            <button id="timer-start-btn" class="btn btn-primary btn-lg">
+                                <i class="fas fa-play"></i>
+                                <span>Start Timer</span>
+                            </button>
+                            <button id="timer-end-btn" class="btn btn-secondary btn-lg" disabled>
+                                <i class="fas fa-stop"></i>
+                                <span>End Timer</span>
+                            </button>
+                            <button id="timer-pause-btn" class="btn btn-secondary btn-lg" disabled>
+                                <i class="fas fa-pause"></i>
+                                <span>Pause</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Challenge Mode -->
+                <div id="challenge-mode-ui" class="game-container">
+                    <div class="challenge-header">
+                        <h2><i class="fas fa-fire"></i> Daily Challenge</h2>
+                        <div class="challenge-info">
+                            <div class="challenge-stat">
+                                <span class="challenge-label">Target WPM</span>
+                                <span class="challenge-value" id="target-wpm">60</span>
+                            </div>
+                            <div class="challenge-stat">
+                                <span class="challenge-label">Target Accuracy</span>
+                                <span class="challenge-value" id="target-accuracy">95%</span>
+                            </div>
+                            <div class="challenge-stat">
+                                <span class="challenge-label">Reward</span>
+                                <span class="challenge-value"><i class="fas fa-coins"></i> 50 XP</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="text-display-container">
+                        <div class="text-display-header">
+                            <span class="text-label">Daily Challenge Text:</span>
+                            <span class="text-length" id="challenge-length">250 chars</span>
+                        </div>
+                        <div class="text-display">
+                            <p id="challenge-text">Complete this daily challenge to earn bonus XP and achievements. This text contains a mix of words, numbers, and symbols to test your all-around typing skills. Type as fast as you can while maintaining high accuracy to complete the challenge successfully!</p>
+                        </div>
+                    </div>
+                    
+                    <div class="typing-container">
+                        <div class="typing-header">
+                            <span>Type the challenge text...</span>
+                            <div class="cursor-blink">
+                                <i class="fas fa-i-cursor"></i>
+                            </div>
+                        </div>
+                        <textarea 
+                            id="challenge-typing-input" 
+                            placeholder="Click Start Challenge to begin..."
+                            disabled
+                            rows="4"
+                            autocomplete="off"
+                            autocorrect="off"
+                            autocapitalize="off"
+                            spellcheck="false"
+                        ></textarea>
+                        
+                        <div class="typing-stats">
+                            <div class="stat">
+                                <span class="stat-label">WPM</span>
+                                <span id="challenge-wpm" class="stat-value">0</span>
+                            </div>
+                            <div class="stat">
+                                <span class="stat-label">Accuracy</span>
+                                <span id="challenge-accuracy" class="stat-value">100%</span>
+                            </div>
+                            <div class="stat">
+                                <span class="stat-label">Time</span>
+                                <span id="challenge-time" class="stat-value">0.0s</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="controls-container">
+                        <button id="challenge-start-btn" class="btn btn-primary btn-lg">
+                            <i class="fas fa-play"></i>
+                            <span>Start Challenge</span>
+                        </button>
+                        <button id="challenge-end-btn" class="btn btn-secondary btn-lg" disabled>
+                            <i class="fas fa-stop"></i>
+                            <span>End Challenge</span>
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- Quick Stats -->
+                <div class="quick-stats">
+                    <div class="stats-card">
+                        <div class="stats-icon">
+                            <i class="fas fa-tachometer-alt"></i>
+                        </div>
+                        <div class="stats-content">
+                            <span class="stats-label">Best WPM</span>
+                            <span class="stats-value" id="best-wpm">0</span>
+                        </div>
+                    </div>
+                    <div class="stats-card">
+                        <div class="stats-icon">
+                            <i class="fas fa-bullseye"></i>
+                        </div>
+                        <div class="stats-content">
+                            <span class="stats-label">Best Accuracy</span>
+                            <span class="stats-value" id="best-accuracy">0%</span>
+                        </div>
+                    </div>
+                    <div class="stats-card">
+                        <div class="stats-icon">
+                            <i class="fas fa-history"></i>
+                        </div>
+                        <div class="stats-content">
+                            <span class="stats-label">Tests Completed</span>
+                            <span class="stats-value" id="tests-completed">0</span>
+                        </div>
+                    </div>
+                    <div class="stats-card">
+                        <div class="stats-icon">
+                            <i class="fas fa-chart-line"></i>
+                        </div>
+                        <div class="stats-content">
+                            <span class="stats-label">Avg. WPM</span>
+                            <span class="stats-value" id="avg-wpm">0</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Lessons Tab -->
+            <div id="lessons" class="content-tab">
+                <div class="lessons-header">
+                    <h2><i class="fas fa-graduation-cap"></i> Typing Lessons</h2>
+                    <p>Progress through lessons to improve your typing skills</p>
+                </div>
+                
+                <div class="lessons-container">
+                    <div class="lesson-category">
+                        <h3><i class="fas fa-home"></i> Home Row Basics</h3>
+                        <div class="lesson-grid">
+                            <!-- Lessons will be populated by JavaScript -->
+                        </div>
+                    </div>
+                    
+                    <div class="lesson-category">
+                        <h3><i class="fas fa-arrow-up"></i> Top Row Practice</h3>
+                        <div class="lesson-grid">
+                            <!-- Lessons will be populated by JavaScript -->
+                        </div>
+                    </div>
+                    
+                    <div class="lesson-category">
+                        <h3><i class="fas fa-arrow-down"></i> Bottom Row Practice</h3>
+                        <div class="lesson-grid">
+                            <!-- Lessons will be populated by JavaScript -->
+                        </div>
+                    </div>
+                    
+                    <div class="lesson-category">
+                        <h3><i class="fas fa-keyboard"></i> Full Keyboard</h3>
+                        <div class="lesson-grid">
+                            <!-- Lessons will be populated by JavaScript -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Practice Modes Tab -->
+            <div id="practice" class="content-tab">
+                <div class="practice-header">
+                    <h2><i class="fas fa-dumbbell"></i> Specialized Practice Modes</h2>
+                    <p>Focus on specific areas to improve your typing skills</p>
+                </div>
+                
+                <div class="practice-grid">
+                    <div class="practice-card" data-mode="numbers">
+                        <div class="practice-icon">
+                            <i class="fas fa-hashtag"></i>
+                        </div>
+                        <h3>Numbers Practice</h3>
+                        <p>Master typing numbers quickly</p>
+                        <button class="btn btn-sm start-practice" data-mode="numbers">Start</button>
+                    </div>
+                    
+                    <div class="practice-card" data-mode="symbols">
+                        <div class="practice-icon">
+                            <i class="fas fa-asterisk"></i>
+                        </div>
+                        <h3>Symbols Practice</h3>
+                        <p>Practice special characters</p>
+                        <button class="btn btn-sm start-practice" data-mode="symbols">Start</button>
+                    </div>
+                    
+                    <div class="practice-card" data-mode="code">
+                        <div class="practice-icon">
+                            <i class="fas fa-code"></i>
+                        </div>
+                        <h3>Code Typing</h3>
+                        <p>Practice programming syntax</p>
+                        <button class="btn btn-sm start-practice" data-mode="code">Start</button>
+                    </div>
+                    
+                    <div class="practice-card" data-mode="quotes">
+                        <div class="practice-icon">
+                            <i class="fas fa-quote-right"></i>
+                        </div>
+                        <h3>Quotes Practice</h3>
+                        <p>Type famous quotes</p>
+                        <button class="btn btn-sm start-practice" data-mode="quotes">Start</button>
+                    </div>
+                    
+                    <div class="practice-card" data-mode="pangram">
+                        <div class="practice-icon">
+                            <i class="fas fa-font"></i>
+                        </div>
+                        <h3>Pangram Mode</h3>
+                        <p>Sentences using every letter</p>
+                        <button class="btn btn-sm start-practice" data-mode="pangram">Start</button>
+                    </div>
+                    
+                    <div class="practice-card" data-mode="custom">
+                        <div class="practice-icon">
+                            <i class="fas fa-edit"></i>
+                        </div>
+                        <h3>Custom Practice</h3>
+                        <p>Use your own text</p>
+                        <button class="btn btn-sm start-practice" data-mode="custom">Start</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Analytics Tab -->
+            <div id="analytics" class="content-tab">
+                <div class="analytics-header">
+                    <h2><i class="fas fa-chart-line"></i> Your Typing Analytics</h2>
+                    <div class="analytics-period">
+                        <button class="btn btn-sm period-btn active" data-period="week">Week</button>
+                        <button class="btn btn-sm period-btn" data-period="month">Month</button>
+                        <button class="btn btn-sm period-btn" data-period="year">Year</button>
+                        <button class="btn btn-sm period-btn" data-period="all">All Time</button>
+                    </div>
+                </div>
+                
+                <div class="analytics-grid">
+                    <div class="analytics-card large">
+                        <h3><i class="fas fa-tachometer-alt"></i> WPM Progress</h3>
+                        <div class="chart-container">
+                            <canvas id="wpm-chart"></canvas>
+                        </div>
+                    </div>
+                    
+                    <div class="analytics-card">
+                        <h3><i class="fas fa-bullseye"></i> Accuracy Trend</h3>
+                        <div class="chart-container">
+                            <canvas id="accuracy-chart"></canvas>
+                        </div>
+                    </div>
+                    
+                    <div class="analytics-card">
+                        <h3><i class="fas fa-keyboard"></i> Keyboard Heatmap</h3>
+                        <div class="heatmap-container" id="keyboard-heatmap">
+                            <!-- Heatmap will be generated by JavaScript -->
+                        </div>
+                    </div>
+                    
+                    <div class="analytics-card">
+                        <h3><i class="fas fa-chart-pie"></i> Error Distribution</h3>
+                        <div class="chart-container">
+                            <canvas id="error-chart"></canvas>
+                        </div>
+                    </div>
+                    
+                    <div class="analytics-card large">
+                        <h3><i class="fas fa-history"></i> Recent Tests</h3>
+                        <div class="recent-tests" id="recent-tests">
+                            <!-- Recent tests will be populated by JavaScript -->
+                        </div>
+                    </div>
+                    
+                    <div class="analytics-card">
+                        <h3><i class="fas fa-download"></i> Export Data</h3>
+                        <div class="export-options">
+                            <p>Download your typing data for analysis</p>
+                            <button id="export-csv" class="btn btn-sm">
+                                <i class="fas fa-file-csv"></i> Export CSV
+                            </button>
+                            <button id="export-json" class="btn btn-sm">
+                                <i class="fas fa-file-code"></i> Export JSON
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Competitive Tab -->
+            <div id="competitive" class="content-tab">
+                <div class="competitive-header">
+                    <h2><i class="fas fa-trophy"></i> Competitive Profile</h2>
+                    <div class="competitive-stats-minimal">
+                        <div class="competitive-stat-mini">
+                            <div class="stat-icon">
+                                <i class="fas fa-globe"></i>
+                            </div>
+                            <div class="stat-info">
+                                <span class="stat-label-mini">Global Rank</span>
+                                <span class="stat-value-mini" id="global-rank">#--</span>
+                            </div>
+                        </div>
+                        <div class="competitive-stat-mini">
+                            <div class="stat-icon">
+                                <i class="fas fa-fire"></i>
+                            </div>
+                            <div class="stat-info">
+                                <span class="stat-label-mini">Highest Streak</span>
+                                <span class="stat-value-mini" id="highest-streak">0</span>
+                            </div>
+                        </div>
+                        <div class="competitive-stat-mini">
+                            <div class="stat-icon">
+                                <i class="fas fa-medal"></i>
+                            </div>
+                            <div class="stat-info">
+                                <span class="stat-label-mini">Achievements</span>
+                                <span class="stat-value-mini" id="total-achievements">0</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="competitive-grid">
+                    <div class="competitive-card">
+                        <h3><i class="fas fa-ghost"></i> Ghost Racing</h3>
+                        <p>Race against your previous best attempt</p>
+                        <div class="ghost-selector">
+                            <select id="ghost-select" class="dropdown">
+                                <option value="personal-best">Personal Best</option>
+                                <option value="yesterday">Yesterday's Attempt</option>
+                                <option value="last-week">Last Week's Best</option>
+                            </select>
+                            <button id="start-ghost-race" class="btn btn-primary">Start Race</button>
+                        </div>
+                    </div>
+                    
+                    <div class="competitive-card">
+                        <h3><i class="fas fa-medal"></i> Achievements</h3>
+                        <div class="achievements-grid-minimal" id="achievements-grid">
+                            <!-- Achievements will be populated by JavaScript -->
+                        </div>
+                    </div>
+                    
+                    <div class="competitive-card">
+                        <h3><i class="fas fa-share-alt"></i> Share & Challenge</h3>
+                        <p>Share your results and challenge friends</p>
+                        <div class="share-options-minimal">
+                            <button id="share-results" class="btn btn-sm">
+                                <i class="fas fa-share"></i> Share
+                            </button>
+                            <button id="create-challenge" class="btn btn-sm">
+                                <i class="fas fa-user-friends"></i> Challenge
+                            </button>
+                            <button id="view-leaderboard" class="btn btn-sm">
+                                <i class="fas fa-list-ol"></i> Leaderboard
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <div class="competitive-card">
+                        <h3><i class="fas fa-gamepad"></i> Progress</h3>
+                        <div class="gamification-stats-minimal">
+                            <div class="gamification-stat-mini">
+                                <span>Level Progress</span>
+                                <div class="progress-bar">
+                                    <div class="progress-fill" id="level-progress" style="width: 0%"></div>
+                                </div>
+                                <span id="level-text">Level 1 (0/100 XP)</span>
+                            </div>
+                            <div class="gamification-stat-mini">
+                                <span>Daily Challenge</span>
+                                <div class="challenge-status" id="daily-challenge-status">
+                                    <i class="fas fa-check-circle"></i> Not Completed
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <!-- Daily Notification -->
+        <div class="daily-notification" id="daily-notification">
+            <div class="notification-content">
+                <h3><i class="fas fa-gift"></i> Daily Reward Available!</h3>
+                <p>Complete today's challenge to earn 50 XP</p>
+                <button id="claim-daily" class="btn btn-sm">Claim Now</button>
+            </div>
+            <button class="notification-close">&times;</button>
+        </div>
+
+        <footer class="main-footer">
+            <p>TypeMaster Pro &copy; 2023 | Built with <i class="fas fa-heart"></i> using HTML, CSS & JavaScript</p>
+            <div class="footer-links">
+                <a href="#" id="accessibility-btn"><i class="fas fa-universal-access"></i> Accessibility</a>
+                <a href="#" id="keyboard-layout-btn"><i class="fas fa-keyboard"></i> Keyboard Layout</a>
+                <a href="#" id="help-btn"><i class="fas fa-question-circle"></i> Help</a>
+                <a href="#" id="privacy-btn"><i class="fas fa-shield-alt"></i> Privacy</a>
+            </div>
+        </footer>
+    </div>
+
+    <!-- Results Modal -->
+    <div id="result-modal" class="modal">
+        <div class="modal-backdrop"></div>
+        <div class="modal-content">
+            <div class="modal-header">
+                <div class="modal-icon" id="modal-icon">
+                    <i class="fas fa-trophy"></i>
+                </div>
+                <h2 id="modal-title">Test Completed!</h2>
+                <button id="close-modal" class="close-btn">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="result-summary">
+                    <p id="result-message">Well done! You completed the test with great accuracy.</p>
+                    <div class="achievement-unlocked" id="achievement-unlocked">
+                        <!-- Achievement notifications will appear here -->
+                    </div>
+                </div>
+                
+                <div class="result-stats">
+                    <div class="result-stat">
+                        <div class="result-stat-icon">
+                            <i class="fas fa-tachometer-alt"></i>
+                        </div>
+                        <div class="result-stat-content">
+                            <span class="result-stat-label">Words Per Minute</span>
+                            <span id="result-wpm" class="result-stat-value">0</span>
+                        </div>
+                    </div>
+                    <div class="result-stat">
+                        <div class="result-stat-icon">
+                            <i class="fas fa-bullseye"></i>
+                        </div>
+                        <div class="result-stat-content">
+                            <span class="result-stat-label">Accuracy</span>
+                            <span id="result-accuracy" class="result-stat-value">100%</span>
+                        </div>
+                    </div>
+                    <div class="result-stat">
+                        <div class="result-stat-icon">
+                            <i class="fas fa-clock"></i>
+                        </div>
+                        <div class="result-stat-content">
+                            <span class="result-stat-label">Time</span>
+                            <span id="result-time" class="result-stat-value">0s</span>
+                        </div>
+                    </div>
+                    <div class="result-stat">
+                        <div class="result-stat-icon">
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <div class="result-stat-content">
+                            <span class="result-stat-label">XP Earned</span>
+                            <span id="result-xp" class="result-stat-value">+0</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="result-details">
+                    <div class="detail-card">
+                        <h4><i class="fas fa-chart-line"></i> Performance Analysis</h4>
+                        <div class="detail-content">
+                            <p>Consistency: <span id="result-consistency">0%</span></p>
+                            <p>Key Strokes: <span id="result-keystrokes">0</span></p>
+                            <p>Words Typed: <span id="result-words">0</span></p>
+                        </div>
+                    </div>
+                    <div class="detail-card">
+                        <h4><i class="fas fa-medal"></i> Rank Improvement</h4>
+                        <div class="detail-content">
+                            <p>Previous Rank: <span id="previous-rank">Beginner</span></p>
+                            <p>New Rank: <span id="new-rank">Beginner</span></p>
+                            <p>Global Percentile: <span id="global-percentile">0%</span></p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="modal-actions">
+                    <button id="new-test-btn" class="btn btn-primary btn-lg">
+                        <i class="fas fa-sync-alt"></i>
+                        <span>New Test</span>
+                    </button>
+                    <button id="share-btn" class="btn btn-secondary">
+                        <i class="fas fa-share-alt"></i>
+                        <span>Share Result</span>
+                    </button>
+                    <button id="practice-more-btn" class="btn btn-secondary">
+                        <i class="fas fa-dumbbell"></i>
+                        <span>Practice More</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Custom Text Modal -->
+    <div id="custom-text-modal" class="modal">
+        <div class="modal-backdrop"></div>
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2><i class="fas fa-paste"></i> Custom Text</h2>
+                <button class="close-modal-btn">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="form-group">
+                    <label for="custom-text-input">Enter your own text to practice:</label>
+                    <textarea 
+                        id="custom-text-input" 
+                        placeholder="Paste or type your custom text here..."
+                        rows="6"
+                    ></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="custom-text-title">Title (optional):</label>
+                    <input type="text" id="custom-text-title" placeholder="My Custom Practice Text">
+                </div>
+                <div class="modal-actions">
+                    <button id="save-custom-text" class="btn btn-primary">Use This Text</button>
+                    <button class="btn btn-secondary close-modal-btn">Cancel</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Settings Modal -->
+    <div id="settings-modal" class="modal">
+        <div class="modal-backdrop"></div>
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2><i class="fas fa-cog"></i> Settings</h2>
+                <button class="close-modal-btn">&times;</button>
+            </div>
+            <div class="modal-body settings-body">
+                <div class="settings-category">
+                    <h3><i class="fas fa-palette"></i> Appearance</h3>
+                    <div class="settings-group">
+                        <label for="theme-select">Color Theme:</label>
+                        <select id="theme-select" class="dropdown">
+                            <option value="midnight">Midnight</option>
+                            <option value="forest">Forest</option>
+                            <option value="sunset">Sunset</option>
+                            <option value="ocean">Ocean</option>
+                            <option value="matrix">Matrix</option>
+                        </select>
+                    </div>
+                    <div class="settings-group">
+                        <label for="font-select">Font:</label>
+                        <select id="font-select" class="dropdown">
+                            <option value="inter">Inter (Default)</option>
+                            <option value="dyslexic">OpenDyslexic</option>
+                            <option value="mono">Monospace</option>
+                        </select>
+                    </div>
+                    <div class="settings-group">
+                        <label for="cursor-select">Cursor Style:</label>
+                        <select id="cursor-select" class="dropdown">
+                            <option value="block">Block</option>
+                            <option value="line">Line</option>
+                            <option value="underline">Underline</option>
+                        </select>
+                    </div>
+                </div>
+                
+                <div class="settings-category">
+                    <h3><i class="fas fa-volume-up"></i> Audio</h3>
+                    <div class="settings-group">
+                        <label for="volume-slider">Volume:</label>
+                        <input type="range" id="volume-slider" min="0" max="100" value="50">
+                    </div>
+                    <div class="settings-group">
+                        <label>
+                            <input type="checkbox" id="sound-toggle-checkbox" checked>
+                            Enable Sound Effects
+                        </label>
+                    </div>
+                </div>
+                
+                <div class="settings-category">
+                    <h3><i class="fas fa-gamepad"></i> Gameplay</h3>
+                    <div class="settings-group">
+                        <label>
+                            <input type="checkbox" id="auto-restart" checked>
+                            Auto-restart after completion
+                        </label>
+                    </div>
+                    <div class="settings-group">
+                        <label>
+                            <input type="checkbox" id="pause-on-blur" checked>
+                            Pause when window loses focus
+                        </label>
+                    </div>
+                    <div class="settings-group">
+                        <label>
+                            <input type="checkbox" id="anti-cheat-toggle" checked>
+                            Enable Anti-Cheat System
+                        </label>
+                    </div>
+                    <div class="settings-group">
+                        <label for="default-duration">Default Test Duration:</label>
+                        <select id="default-duration" class="dropdown">
+                            <option value="30">30 seconds</option>
+                            <option value="60" selected>60 seconds</option>
+                            <option value="90">90 seconds</option>
+                            <option value="120">120 seconds</option>
+                        </select>
+                    </div>
+                </div>
+                
+                <div class="settings-category">
+                    <h3><i class="fas fa-universal-access"></i> Accessibility</h3>
+                    <div class="settings-group">
+                        <label>
+                            <input type="checkbox" id="high-contrast">
+                            High Contrast Mode
+                        </label>
+                    </div>
+                    <div class="settings-group">
+                        <label>
+                            <input type="checkbox" id="reduce-motion">
+                            Reduce Motion
+                        </label>
+                    </div>
+                    <div class="settings-group">
+                        <label>
+                            <input type="checkbox" id="keyboard-navigation">
+                            Enhanced Keyboard Navigation
+                        </label>
+                    </div>
+                </div>
+                
+                <div class="modal-actions">
+                    <button id="save-settings" class="btn btn-primary">Save Settings</button>
+                    <button id="reset-settings" class="btn btn-secondary">Reset to Defaults</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Accessibility Modal -->
+    <div id="accessibility-modal" class="modal">
+        <div class="modal-backdrop"></div>
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2><i class="fas fa-universal-access"></i> Accessibility Options</h2>
+                <button class="close-modal-btn">&times;</button>
+            </div>
+            <div class="modal-body">
+                <!-- Content will be populated by JavaScript -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Sound Effects (Hidden Audio Elements) -->
+    <audio id="key-sound" preload="auto">
+        <source src="https://assets.mixkit.co/sfx/preview/mixkit-select-click-1109.mp3" type="audio/mpeg">
+    </audio>
+    <audio id="error-sound" preload="auto">
+        <source src="https://assets.mixkit.co/sfx/preview/mixkit-wrong-answer-fail-notification-946.mp3" type="audio/mpeg">
+    </audio>
+    <audio id="success-sound" preload="auto">
+        <source src="https://assets.mixkit.co/sfx/preview/mixkit-correct-answer-tone-2870.mp3" type="audio/mpeg">
+    </audio>
+    <audio id="complete-sound" preload="auto">
+        <source src="https://assets.mixkit.co/sfx/preview/mixkit-winning-chimes-2015.mp3" type="audio/mpeg">
+    </audio>
+
+    <!-- Include Chart.js for analytics -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
